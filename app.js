@@ -69,7 +69,8 @@ class Server {
 
   initDatabaseCon() {
     let that = this;
-    db.connect("mongodb+srv://shruti:20$omethinG@cluster0learning.fa3ys.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", function (err) {
+    const url = "";
+    db.connect(url, function (err) {
       if (err) {
         console.log(err);
         console.log("Unable to connect to Mongo.");
