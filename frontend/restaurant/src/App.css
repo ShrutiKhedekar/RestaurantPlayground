@@ -1,0 +1,25 @@
+.dashboard-container {
+  margin: 20px;
+}
+.grid-container {
+  margin: 20px;
+}
+
+.searchBox,
+.cusinesList {
+  margin: 20px;
+}
+
+.card-container {
+  box-shadow: 4px 8px 41px #cdc9c9;
+}
+
+.moreInfobtn {
+  position: sticky;
+  bottom: 10px;
+  left: 45%;
+  border-radius: 37px;
+  /* background-color: #b3bde1; */
+  height: 66px;
+  border: none;
+}
