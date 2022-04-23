@@ -7,6 +7,11 @@ import CardDetails from "./components/cardDetails";
 import CartDetails from "./components/CartDetails";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { CartProvider } from "./components/cartContext";
+import { useEffect } from "react";
+// import socketClient from "socket.io-client";
+// import * as io from "socket.io-client";
+
+import io from "socket.io-client";
 
 const darkTheme = createTheme({
   palette: {
@@ -21,6 +26,39 @@ const darkTheme = createTheme({
 });
 
 function App() {
+  // useEffect(() => {
+  // const socket = io("http://127.0.0.1:5002/");
+  // console.log(socket);
+  // // socket.on("connect", function (x) {
+  // //   console.log(x);
+  // //   console.log(`I'm connected with the back-end`);
+  // // });
+
+  // socket.emit("new-message", "shruit here");
+
+  // // socket.on("hey", function (msg) {
+  // //   console.log("message: ", msg);
+  // // });
+
+  // socket.on("new-message", (message) => {
+  //   console.log(message);
+  // });
+
+  var socket = io("http://127.0.0.1:8080");
+
+  socket.on("connect", () => {
+    console.log(`I'm connected with the back-end`);
+  });
+  socket.on("connection", function (msg) {
+    console.log("message: ", msg);
+  });
+
+  socket.emit("shruti", "shruti received byrser");
+
+  socket.on("new-message", (message) => {
+    console.log(message);
+  });
+
   return (
     <ThemeProvider theme={darkTheme}>
       <BrowserRouter>
